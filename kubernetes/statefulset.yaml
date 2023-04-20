@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: folder4study
+  labels:
+    app: postgres
+    version: latest
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: postgres
+      labels:
+        app: postgres
+        version: latest
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15.2
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - name: port
+              containerPort: 5432
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: postgres
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: pv
+      volumes:
+        - name: pv
+          persistentVolumeClaim:
+            claimName: postgres
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: postgres

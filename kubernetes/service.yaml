@@ -7,7 +7,7 @@ metadata:
     app: postgres
     version: latest
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: postgres
   ports:

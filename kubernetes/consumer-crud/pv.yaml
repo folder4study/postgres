@@ -1,11 +1,12 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: postgres
+  name: consumer-crud-postgres
   labels:
-    app: postgres
+    app: consumer-crud-postgres
     version: latest
     type: local
+    tag: postgres
 spec:
   storageClassName: manual
   capacity:
@@ -14,4 +15,4 @@ spec:
     - ReadWriteMany
   hostPath:
     type: DirectoryOrCreate
-    path: /run/desktop/mnt/host/c/VolumesDisk/postgres
+    path: /run/desktop/mnt/host/c/VolumesDisk/consumer-crud-postgres

@@ -1,11 +1,12 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: postgres
+  name: consumer-crud-postgres
   namespace: folder4study
   labels:
-    app: postgres
+    app: consumer-crud-postgres
     version: latest
+    tag: postgres
 spec:
   storageClassName: manual
   accessModes:

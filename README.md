@@ -1,2 +1,2 @@
-# postgres
-Postgres for Kubernetes
+# Postgres
+Postgres deployments for Kubernets

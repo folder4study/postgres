@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres
+  name: consumer-crud-postgres
   namespace: folder4study
   labels:
-    app: postgres
+    app: consumer-crud-postgres
     version: latest
+    tag: postgres
 spec:
   replicas: 1
   template:
     metadata:
-      name: postgres
+      name: consumer-crud-postgres
       labels:
-        app: postgres
+        app: consumer-crud-postgres
         version: latest
+        tag: postgres
     spec:
       containers:
-        - name: postgres
+        - name: consumer-crud-postgres
           image: postgres:15.2
           imagePullPolicy: "IfNotPresent"
           ports:
@@ -25,15 +27,15 @@ spec:
               protocol: TCP
           envFrom:
             - configMapRef:
-                name: postgres
+                name: consumer-crud-postgres
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: pv
       volumes:
         - name: pv
           persistentVolumeClaim:
-            claimName: postgres
+            claimName: consumer-crud-postgres
   selector:
     matchLabels:
-      app: postgres
-  serviceName: postgres
+      app: consumer-crud-postgres
+  serviceName: consumer-crud-postgres

@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: consumer-crud-postgres
+  name: postgres
   namespace: folder4study
   labels:
-    app: consumer-crud-postgres
+    app: postgres
     version: latest
-    tag: postgres
 data:
   POSTGRES_DB: consumer-crud
   POSTGRES_USER: admin

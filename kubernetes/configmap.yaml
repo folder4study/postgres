@@ -7,6 +7,6 @@ metadata:
     app: postgres
     version: latest
 data:
-  POSTGRES_DB: consumer-crud
+  POSTGRES_DB: postgres
   POSTGRES_USER: admin
-  POSTGRES_PASSWORD: admin
+  POSTGRES_PASSWORD: 123456
